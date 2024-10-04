@@ -1,0 +1,72 @@
+.showOff{
+    width: 100%;
+    height: 30rem;
+    background-color: red;
+    position: relative;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.showImg{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.showSeries{
+    width: 25rem;
+}
+
+.showInfo{
+    position: absolute;
+    bottom: 20%;
+    margin-left: 2rem;
+    color: white;
+    width: 40%;
+}
+
+.watch{
+    border: 0;
+    padding: 0.8rem 1.5rem;
+
+} 
+
+.moreInfo{
+    margin-left: 1rem;
+    color: white;
+    border: 0;
+    padding: 0.8rem 1.5rem;
+    background-color: #706e6e;
+}
+
+.watch, .moreInfo{
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    
+}
+
+.moreInfo:hover,.watch:hover{
+    opacity: 0.6;
+}
+
+#search{
+    animation: go-back;
+    background-color: red;
+}
+
+
+@keyframes go-back {
+
+    100% {
+        filter: grayscale(100%);
+    }
+}
+ 
+
+@media (max-width: 949px) { 
+
+} 
+
+@media (min-width: 950px) and (max-width: 1920px) {
+
+ }
