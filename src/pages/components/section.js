@@ -27,9 +27,8 @@ export default function Section({ theme, movies }) {
             <ul className={styles.posters} ref={postersRef}>
                 {movies.map((movie,key) => {
                     return <div key={key} className={styles.poster}  onMouseLeave={(e) => { setInfo(e, true) }} onMouseEnter={(e) => { setInfo(e, true) }}>
-                        <img src={movie} onClick={nextPage}></img>
+                        <img className={styles.movieImg} src={movie} onClick={nextPage}></img>
                         <div className={`${styles.invisible} ${styles.infoPoster}`}>
-                            <h2>Movie Name</h2>
                             <div className={styles.posterBtns}>
                                 <img src={play.src}></img>
                                 <img src={plus.src} ></img>

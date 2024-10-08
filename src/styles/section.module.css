@@ -1,6 +1,6 @@
 .section {
     margin-top: 1rem;
-    padding: 1rem;
+
     color: white;
     margin-left: 2rem;
     
@@ -14,18 +14,24 @@
 }
 
 .posters{
-    position: relative;
     display: flex;
+    height: 15rem;
 }
 
 .poster{
-    position: relative;
     margin-right: 1rem;
     display: flex;
+    width: 300px;
+  height: 200px;
 }
 
-.poster img{
-    
+.movieImg{
+  object-fit: cover;
+  
+  border: 0.5px solid black;
+  border-bottom: 0px;
+  border-radius: 0.5rem;
+  
     
 }
 
@@ -37,37 +43,52 @@
     background-color: #252525;
     position: absolute;
     display: flex;
+    text-align: center;
     flex-direction: column;
-    animation: expand 0.6s forwards;
-    height: 13%;
+    animation: expand 0.3s forwards;
     width: 100%;
+    height: 5rem;
     z-index: -1;
-
+    top: 0%;
 }
 
 .posterBtns{
+
     display: flex;
     justify-content: space-evenly;
+    align-items: flex-end;
 }
 
 .posterBtns img{
+    transition: 0.8s;
     width: 2rem;
+    height: 2rem;
 }
 
 
 .poster:hover{
+    left: 1.5rem;
     z-index: 2;
-    scale: 1.1;
+    scale: 1.4;
     display: flex;
     transition: 1s;
 }
 
+.movieImg:hover{
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.powerBtns img:hover{
+    background-color: red;
+}
+
 @keyframes expand {
     0%{
-        bottom:  0%;
+        top: 0%;
     }
     100% {
-        bottom: -13%;
+        top: 100%;
     }
 }
  
