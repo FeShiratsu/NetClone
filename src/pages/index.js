@@ -14,10 +14,10 @@ export default function Home() {
       <Header></Header>
       <Welcome></Welcome>
       <Section theme={"Launched recently"} movies={movies}></Section>
-      <Section theme={"Launched recently"} movies={movies}></Section>
-      <Section theme={"Launched recently"} movies={movies}></Section>
-      <Section theme={"Launched recently"} movies={movies}></Section>
-      <Section theme={"Launched recently"} movies={movies}></Section>
+      <Section theme={"Continue watching"} movies={movies}></Section>
+      <Section theme={"Action"} movies={movies}></Section>
+      <Section theme={"Comedy"} movies={movies}></Section>
+      <Section theme={"Cinema Classics"} movies={movies}></Section>
       
     </main>
   );
