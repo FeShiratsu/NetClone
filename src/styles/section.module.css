@@ -1,12 +1,32 @@
 .section {
     margin-top: 1rem;
-
     color: white;
-    margin-left: 2rem;
+    
 
 }
 
+.arrows{
+    padding-left: 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 2rem);
+    position: absolute; 
+    pointer-events: none;
+    z-index: 3;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.arrows img{
+    height: 100%;
+    pointer-events: all;
+   
+   transition: 1s;
+   width: 3rem;
+}
+
 .section h1 {
+    padding-left: 2rem;
     font-weight: 500;
     font-size: 2rem;
     margin-bottom: 0.5rem;
@@ -38,8 +58,11 @@
 }
 
 .posters {
+    padding-left: 2rem;
+    position: relative;
     display: flex;
     height: 15rem;
+    transition: 1s ease-in;
 }
 
 .poster {
@@ -48,10 +71,11 @@
     width: 300px;
     height: 200px;
     position: relative;
-    
+    transition: 1s;
 }
 
 .movieImg {
+ 
     object-fit: cover;
 
     border: 0.5px solid black;
@@ -76,6 +100,7 @@
     height: 5rem;
     z-index: -1;
     top: 0%;
+    animation-delay: 0.8s;
 }
 
 .posterBtns {
@@ -93,11 +118,11 @@
 
 
 .poster:hover {
-    left: 1.5rem;
+    
     z-index: 2;
     scale: 1.4;
     display: flex;
-    transition: 1s;
+    
 }
 
 .movieImg:hover {
@@ -105,11 +130,9 @@
     border-bottom-right-radius: 0;
 }
 
-.powerBtns img:hover {
-    
-}
-
-.sectionTitle h1:hover {
+.arrows img:hover{
+    background-color: rgba(51, 51, 51, 0.562);
+    scale: 1.2;
 }
 
 @keyframes expand {
