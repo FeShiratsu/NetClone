@@ -62,7 +62,8 @@
     position: relative;
     display: flex;
     height: 15rem;
-    transition: 1s ease-in;
+    right: 0;
+    transition: 0.8s ;
 }
 
 .poster {
@@ -72,6 +73,8 @@
     height: 200px;
     position: relative;
     transition: 1s;
+
+    
 }
 
 .movieImg {

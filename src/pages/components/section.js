@@ -10,12 +10,14 @@ import styles from "@/styles/section.module.css"
 
 export default function Section({ theme, movies }) {
     let postersRef = useRef();
-    const [percentage, setPercentage] = useState(0);
+    let moving = false;
+    
+    let percentage = 0;
     function setInfo(e, option) {
         const backArrow = document.getElementById("BArrow");
         const backText = document.getElementById("BText");
-        backArrow.style.display = (option)?"inline":"none";
-        backText.style.display = (option)?"inline":"none";
+        backArrow.style.display = (option) ? "inline" : "none";
+        backText.style.display = (option) ? "inline" : "none";
         const infoPoster = e.currentTarget.lastChild.classList;
         const invisiClass = styles.invisible;
         (option) ? infoPoster.remove(invisiClass) : infoPoster.add(invisiClass)
@@ -23,19 +25,30 @@ export default function Section({ theme, movies }) {
 
     function nextPage(direction) {
         const posters = document.getElementById("posters");
-        console.log(posters.clientWidth)
-        let number = (direction=="forward")?200:-200;
-        if(checkLimits(parseInt(posters.style.right),Math.sign(number))){
-            return;
+        if (!moving) {
+            
+            let number = (direction == "forward") ? 400 : -400;
+            if (checkLimits(parseInt(posters.style.right), Math.sign(number))) {
+                console.log("invalid!");
+                return;
+            }
+            moving = true;
+            percentage += number;
+            console.log(posters.style.right);
+
+            posters.style.right = percentage + "px";
+            
+            setTimeout(() => {
+                moving = false;
+            }, "800");
+        }else{
+            console.log("Cannot move while moving");
         }
-        console.log("going: "+number)
-        setPercentage(percentage + number);
-        posters.style.right = percentage+"px";
+
     }
 
-    function checkLimits(number,direction){
-        console.log((number>=1300 && direction==1) || (number<=0 && direction==-1));
-        return (number>=1605 && direction==1) || (number<=0 && direction==-1)
+    function checkLimits(number, direction) {
+        return (number >= 1500 && direction == 1) || (number <= 0 && direction == -1)
     }
 
 
@@ -44,16 +57,16 @@ export default function Section({ theme, movies }) {
             <div className={styles.sectionTitle}>
                 <h1>{theme}</h1>
                 <div className={styles.seeAll}>
-                <p id="BText">See all</p>
-                <img id="BArrow" src={back.src}></img>
+                    <p id="BText">See all</p>
+                    <img id="BArrow" src={back.src}></img>
                 </div>
             </div>
             <div className={styles.arrows}>
-                    <img src = {backSec.src} onClick={() =>{nextPage("back")}}></img>
-                    <img src = {nextSec.src} onClick={() =>{nextPage("forward")}}></img>
-                </div>
+                <img src={backSec.src} onClick={() => { nextPage("back") }}></img>
+                <img src={nextSec.src} onClick={() => { nextPage("forward") }}></img>
+            </div>
             <ul className={styles.posters} ref={postersRef} id="posters">
-                
+
                 {movies.map((movie, key) => {
                     return <div key={key} className={styles.poster} onMouseLeave={(e) => { setInfo(e, false) }} onMouseEnter={(e) => { setInfo(e, true) }}>
                         <img className={styles.movieImg} src={movie}></img>
